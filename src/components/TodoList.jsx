@@ -2,11 +2,13 @@ import TodoItem from "./TodoItem";
 
 function TodoList({ todos }) {
   return (
-    <ul>
-      {todos.map((todo) => (
-        <TodoItem key={todo.id} todo={todo} />
-      ))}
-    </ul>
+    <div id="myUnOrdList">
+      <ul className="todo-list">
+        {todos.map((todo) => (
+          <TodoItem key={todo.id} todo={todo} />
+        ))}
+      </ul>
+    </div>
   );
 }
 

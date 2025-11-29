@@ -57,7 +57,7 @@ body {
     flex-direction: column;
     font-family: 'Work Sans', sans-serif;
     min-height: 100vh;
-    padding-top: 3%;
+    padding-top: 4vh;
 }
 
 /* Body light or darker themes */
@@ -89,10 +89,11 @@ body {
     align-items: center;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
-    font-size: 3rem;
-    min-height: 25vh;
+    justify-content: center;
+    font-size: 2.5rem;
+    min-height: 45vh; /* push title down to center visually */
     width: 100%;
+    text-align: center;
 }
 
 /* Theme buttons div */
@@ -136,14 +137,14 @@ body {
 
 /* Animation */
 #title {
-    border-right: solid 3px rgba(0, 0, 0, 0.75);
-    white-space: pre;
-    overflow: hidden;     
-    letter-spacing: 0.20rem;
-    margin-top: 50px;
-    margin-bottom: 20px;
-    max-width: 480px;
-  }
+        border-right: solid 3px rgba(0, 0, 0, 0.75);
+        white-space: pre;
+        overflow: hidden;     
+        letter-spacing: 0.20rem;
+        margin-top: 50px;
+        margin-bottom: 20px;
+        max-width: 900px;
+    }
   
   /* Animation */
 #title {
@@ -178,8 +179,8 @@ form {
     display: flex;
     font-size: 1.7rem;
     justify-content: center;
-    margin: 15px 0;
-    padding: 0.8rem;
+    margin: 6px 0 0 0;
+    padding: 0.2rem;
     width: 100%;
 }
 
@@ -188,12 +189,59 @@ form input {
     font-size: 17px;
     border: none;
     outline: none;
-    /* border-radius: 15; */
-    border-top-left-radius: 17px;
-    border-bottom-left-radius: 17px;
-    max-width: 500px;
+    border-top-left-radius: 26px;
+    border-bottom-left-radius: 26px;
+    max-width: 900px;
     transition: background-color 200ms ease-in-out;
-    width: 100%;
+    width: 60vw;
+    min-width: 360px;
+}
+
+/* specific styles for the homepage input/button so they match the screenshot */
+.todo-input {
+    height: 56px;
+    padding-left: 20px;
+    background-color: #111213; /* darker input bar */
+    color: #dcdcdc;
+    border-radius: 26px 0 0 26px;
+}
+
+.todo-btn {
+    padding: 12px 22px;
+    border-top-right-radius: 24px;
+    border-bottom-right-radius: 24px;
+    background-color: #ffdedd; /* soft pink */
+    color: #141414;
+    box-shadow: none;
+    margin-left: 8px;
+}
+.todo-btn:hover {
+    background-color: #ffe9e6;
+}
+
+/* center and style datetime */
+#datetime {
+    text-align: center;
+    margin-top: 18px;
+    color: rgba(255,255,255,0.85);
+    font-size: 0.95rem;
+}
+
+/* home nav buttons container */
+.home-nav {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    margin-top: 20px;
+}
+.home-nav .nav-btn {
+    background: rgba(0,0,0,0.6);
+    color: #fff;
+    padding: 8px 14px;
+    border-radius: 12px;
+}
+.home-nav .nav-btn:hover {
+    background: rgba(0,0,0,0.75);
 }
 
 /* Input themes */
@@ -422,4 +470,56 @@ form button {
     form > button.light-button {
         box-shadow: 0 0 5px lightgray;
     }
+}
+
+/* --- Page & card styles for Login / Todos pages --- */
+.page-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 2rem 1rem;
+}
+
+.auth-card {
+    background: rgba(255,255,255,0.03);
+    border-radius: 12px;
+    padding: 24px;
+    max-width: 420px;
+    width: 100%;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.35);
+    text-align: center;
+}
+
+.login-title {
+    margin-bottom: 12px;
+    font-size: 1.6rem;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+}
+
+.login-input {
+    width: 100%;
+    padding: 10px 14px;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+    font-size: 1rem;
+}
+
+/* small tweak for the todo list wrapper */
+#myUnOrdList { display:flex; justify-content:center; width:100%; }
+.todo-list { max-width: 720px; width:100%; display:block; padding:0; }
+
+.add-todo-form { display:flex; gap:8px; justify-content:center; align-items:center; margin-bottom:12px; }
+
+@media (max-width:600px) {
+  .auth-card { padding: 18px; }
+  .login-title { font-size: 1.25rem; }
+  .add-todo-form { flex-direction: column; }
 }

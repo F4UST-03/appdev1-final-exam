@@ -16,13 +16,17 @@ function Todos () {
     }, [dispatch])
 
     return (
-        <div>
-            <h1>Todos</h1>
-            <AddTodoForm />
-            <TodoList todos={todos} />
+        <div className="page-container">
+            <div className="auth-card">
+                <h1 style={{ marginBottom: '12px' }}>Todos</h1>
+                <AddTodoForm />
+                <TodoList todos={todos} />
 
-            <button onClick={() => navigate("/home")}>Back to Home</button>
-            <button onClick={() => navigate("/login")}>Logout</button>
+                <div style={{ display: 'flex', gap: 8, justifyContent: 'center', marginTop: 12 }}>
+                    <button className="standard-button" onClick={() => navigate("/home")}>Back to Home</button>
+                    <button className="standard-button" onClick={() => navigate("/login")}>Logout</button>
+                </div>
+            </div>
         </div>
     )
 }

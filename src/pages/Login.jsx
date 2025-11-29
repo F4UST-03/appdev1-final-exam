@@ -9,6 +9,7 @@ function Login () {
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
     const [users, setUsers] = useState([])
+    const [theme, setTheme] = useState("standard")
 
     const SECRET = import.meta.env.VITE_APP_SECRET_PASSWORD
 
@@ -17,6 +18,11 @@ function Login () {
         .get("https://jsonplaceholder.typicode.com/users?_limit=3")
         .then(res => setUsers(res.data))
         .catch(err => console.error(err));
+
+        const bodyCls = document.body.classList
+        if (bodyCls.contains("light")) setTheme("light")
+        else if (bodyCls.contains("darker")) setTheme("darker")
+        else setTheme("standard")
     }, [])
 
     function handleLogin() {
@@ -37,14 +43,30 @@ function Login () {
     }
 
     return (
-        <div>
-            <h2>Login</h2>
+        <div className="page-container">
+            <div className="auth-card">
+                <h2 className="login-title">Login</h2>
 
-            <input type="text" placeholder="Enter username (E.g., Bret)" value={username} onChange={(e) => setUsername(e.target.value)} />
-            <br />
-            <input type="password" placeholder="Enter password" value={password} onChange={(e) => setPassword(e.target.value)} />
-            <br />
-            <button onClick={handleLogin}>Login</button>
+                <div className="login-form">
+                    <input
+                        type="text"
+                        className={`login-input ${theme}-input`}
+                        placeholder="Enter username (E.g., Bret)"
+                        value={username}
+                        onChange={(e) => setUsername(e.target.value)}
+                    />
+
+                    <input
+                        type="password"
+                        className={`login-input ${theme}-input`}
+                        placeholder="Enter password"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                    />
+
+                    <button className={`standard-button ${theme}-button`} onClick={handleLogin}>Login</button>
+                </div>
+            </div>
         </div>
     )
 }
